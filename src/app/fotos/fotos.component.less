@@ -1,0 +1,46 @@
+@knop1: #94b5c3;
+@knop1H: #c8e9f7;
+//_____________________________________________________
+.palet {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+figure {
+  margin: 10px;
+  outline: 2px solid black;
+  display: block;
+  height: 120px;
+  flex: 0;
+  position: relative;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+}
+//_____________________________________________________
+.arrows {
+  position: fixed;
+  top: 10vh;
+  left: 0px;
+  img {
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    opacity: 0.6;
+  }
+  img:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    opacity: 1.0;
+  }
+}
+//_____________________________________________________
+.kader {
+  position: absolute;
+  background-color: rgba(128, 128, 128, 0.45);
+  outline: 4px solid #462c17;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+}

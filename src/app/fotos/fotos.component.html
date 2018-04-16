@@ -1,0 +1,26 @@
+<div class="palet">
+    <div *ngFor="let item of items; let i = index">
+        <figure (click)="keuze(item)">
+            <img src="./thumb/{{item.name}}"/>
+        </figure>
+    </div>
+</div>
+
+<div *ngIf="showGroot" class="kader"
+     [ngStyle]="{'top.px': sizeI['upperY'],
+                 'left.px': sizeI['upperX']}">
+    <img (click)="geenGroot()" src="{{groot}}" width="{{sizeI['fotoWidth']}}" height="{{sizeI['fotoHeight']}}">
+
+    <div class="arrows">
+        <div *ngIf="(nF != lF)" (click)="next()">
+            <img src="./resources/next.png">
+        </div>
+        <div *ngIf="(nF == lF)">
+            <img src="./resources/leeg.png">
+        </div>
+        <div *ngIf="(nF != 0)" (click)="prev()">
+            <img src="./resources/prev.png">
+        </div>
+    </div>
+
+</div>

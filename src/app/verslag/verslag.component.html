@@ -1,0 +1,26 @@
+<div [ngStyle]="{
+        'top.px': sizeI.boxT,
+        'height.px': (sizeI.footer - sizeI.boxT),
+        'width.px': sizeI.breedte,
+        'background-image': backFoto.name
+}">
+    <div id="work" class="boxInfo" [ngStyle]="{
+        'top.px': sizeI.boxT,
+        'height.px': (sizeI.footer - sizeI.boxT)
+    }">
+        <div [innerHTML]="data[select].secure"></div>
+    </div>
+
+    <div class="menuInfo"
+         [ngStyle]="{
+        'top.px': sizeI.boxT + 3,
+        'height.px': (sizeI.footer - sizeI.boxT - 20)
+     }">
+        <div *ngFor="let item of data; let id = index">
+            <div class="button1" (click)="blog(id)">
+                {{item.titel}}
+            </div>
+        </div>
+    </div>
+</div>
+

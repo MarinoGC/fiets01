@@ -1,0 +1,100 @@
+@boxShadow1: #333333;
+@boxShadow3: #b0b0b0;
+@vlak1: rgba(57, 59, 68, 0.2);
+@menuC: #fbac46;
+@letterL1: #808495;
+@backSmall: rgba(165, 165, 165, 0.6);
+//________________________________________________________
+body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  //  overflow: hidden;
+}
+header {
+  margin-left: 0px;
+  background-color: @vlak1;
+  color: white;
+  text-align: left;
+  margin-bottom: 5px;
+  box-shadow: 0px 4px 5px @boxShadow1;
+  z-index: 5;
+}
+footer {
+  background-color: @vlak1;
+  color: @letterL1;
+  cursor: default;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  box-shadow: 0px -3px 4px @boxShadow3;
+  z-index: 5;
+}
+.lineS1 {
+  color: @menuC;
+  background-color: @menuC;
+  height: 8px;
+  width: 100vw;
+  z-index: 5;
+}
+//________________________________________
+.menuSimpel {
+  display: flex;
+  float: left;
+  flex: 1;
+  margin-left: 20px;
+  font-size: 15pt;
+  color:@menuC;
+  cursor: default;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  z-indez: 5;
+}
+.menuItem {
+  .menuSimpel;
+}
+.menuItem:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+//________________________________________
+.buttonHelp {
+  clear: none;
+  float: right;
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 25px;
+  color: #dd0a31;
+  background-color: rgba(78, 81, 94, 0.5);;
+}
+.buttonHelp:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.helpContainer {
+  position: absolute;
+  color: black;
+  z-index: 20;
+  background-color: rgba(203, 203, 203, 0.8);
+  border-radius: 20px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  padding: 15px;
+  overflow-y: auto;
+  z-index: 20;
+}
+//________________________________________
+.smallSub {
+  position: absolute;
+  background-color: @backSmall;
+  padding: 10px;
+  color: @menuC;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  z-index: 5;
+}
+//______________________________________________________
+.vast {
+  position: absolute;
+  width: 100vw;
+}

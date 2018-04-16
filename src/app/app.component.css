@@ -1,0 +1,96 @@
+body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+header {
+  margin-left: 0px;
+  background-color: rgba(57, 59, 68, 0.2);
+  color: white;
+  text-align: left;
+  margin-bottom: 5px;
+  box-shadow: 0px 4px 5px #333333;
+  z-index: 5;
+}
+footer {
+  background-color: rgba(57, 59, 68, 0.2);
+  color: #808495;
+  cursor: default;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  box-shadow: 0px -3px 4px #b0b0b0;
+  z-index: 5;
+}
+.lineS1 {
+  color: #fbac46;
+  background-color: #fbac46;
+  height: 8px;
+  width: 100vw;
+  z-index: 5;
+}
+.menuSimpel {
+  display: flex;
+  float: left;
+  flex: 1;
+  margin-left: 20px;
+  font-size: 15pt;
+  color: #fbac46;
+  cursor: default;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  z-indez: 5;
+}
+.menuItem {
+  display: flex;
+  float: left;
+  flex: 1;
+  margin-left: 20px;
+  font-size: 15pt;
+  color: #fbac46;
+  cursor: default;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  z-indez: 5;
+}
+.menuItem:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.buttonHelp {
+  clear: none;
+  float: right;
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 25px;
+  color: #dd0a31;
+  background-color: rgba(78, 81, 94, 0.5);
+}
+.buttonHelp:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.helpContainer {
+  position: absolute;
+  color: black;
+  background-color: rgba(203, 203, 203, 0.8);
+  border-radius: 20px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  padding: 15px;
+  overflow-y: auto;
+  z-index: 20;
+}
+.smallSub {
+  position: absolute;
+  background-color: rgba(165, 165, 165, 0.6);
+  padding: 10px;
+  color: #fbac46;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  z-index: 5;
+}
+.vast {
+  position: absolute;
+  width: 100vw;
+}
+/*# sourceMappingURL=app.component.css.map */

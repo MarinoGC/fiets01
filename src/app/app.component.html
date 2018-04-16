@@ -1,0 +1,75 @@
+<body>
+
+<header>
+    <div #header class="lineS1"></div>
+    <div #topDet></div>
+    <div *ngFor="let item of items; let id=index">
+        <div (click)="onNavigate(item)">
+            <div id="{{item.name}}" class="menuItem">
+                {{item.name}}
+            </div>
+            <div class="menuSimpel"
+                 *ngIf="(id < (items.length - 1))">
+                |
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="readyData && extraInfo.data['help']"
+         class="buttonHelp"
+         (click)="help()">
+        HELP
+    </div>
+
+    <div *ngIf="helpShow"
+         (click)="help()"
+         [ngStyle]="{'top.px':sizeI.boxT + 60,
+                     'left.px': sizeI.breedte / 2,
+                     'height.px': sizeI.footer - sizeI.boxT - 100,
+                     'width.px': sizeI.breedte / 2 - 50}"
+         class="helpContainer"
+         [innerHtml]="helpHtml">
+    </div>
+</header>
+<div #boxDetT></div>
+
+<main class="mainContent"
+      [ngStyle]="{'height.px': (sizeI.hoogte - sizeI.boxT - correctieFooter)}">
+    <div *ngIf="readyData">
+        <div *ngIf="dataSel[0]">
+            <app-home
+                    [sizeI]="sizeI"
+                    [datamd]="datamd">
+            </app-home>
+        </div>
+        <div *ngIf="dataSel[1]">
+            <app-verslag
+                    [sizeI]="sizeI"
+                    [datamd]="datamd">
+            </app-verslag>
+        </div>
+        <div *ngIf="dataSel[2]">
+            <app-kaart
+                    [sizeI]="sizeI">
+            </app-kaart>
+        </div>
+        <div *ngIf="dataSel[3]">
+            <app-fotos
+                    (onGroot)="onGroot($event)"
+                    [sizeI]="sizeI"
+                    [treemd]="treemd"
+            >
+            </app-fotos>
+        </div>
+    </div>
+
+</main>
+
+
+<footer #footerDet
+        [ngStyle]="{'height.px': correctieFooter}">
+    <a href="mailto:info@carasso.nl" target="_blank">email Marino Carasso</a>
+</footer>
+<div #bottomDetT></div>
+
+</body>

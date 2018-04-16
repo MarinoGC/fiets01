@@ -1,0 +1,27 @@
+.boxHV {
+  position: absolute;
+  background-size: cover;
+  z-index: 0;
+}
+.boxL {
+  position: absolute;
+  width: 33vw;
+  z-index: 11;
+  border-radius: 20px;
+  top: 50vh;
+  left: 25vw;
+  transform: translate(-15vw, -25vh);
+  color: #fbac46;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+.boxR {
+  position: absolute;
+  z-index: 11;
+  background-color: rgba(238, 238, 238, 0.2);
+  border-radius: 20px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  padding: 15px;
+  overflow-y: auto;
+}
+/*# sourceMappingURL=home.component.css.map */

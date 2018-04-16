@@ -1,0 +1,36 @@
+.boxInfo {
+  position: absolute;
+  left: 0px;
+  right: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 5;
+  padding: 15px;
+}
+.menuInfo {
+  position: absolute;
+  width: 120px;
+  right: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 5;
+  font-size: 0.6em;
+  background-color: rgba(70, 44, 23, 0.71);
+  border-radius: 10px;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+}
+.button1 {
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: #d3d3d3;
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+}
+.button1:hover {
+  background-color: #e7e7e7;
+}
+/*# sourceMappingURL=verslag.component.css.map */

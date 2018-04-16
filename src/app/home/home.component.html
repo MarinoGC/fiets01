@@ -1,0 +1,35 @@
+<div *ngIf="ready">
+    <!--______________________moving picture_________________________-->
+    <div    *ngIf="!aspect"
+            class="boxHV"
+            [ngStyle]="{'top.px': sizeI.header,
+                    'background-image': backFoto.name,
+                    'left.px': - dVH.shift,
+                    'right.px': 0,
+                    'height.px': (sizeI.hoogte - sizeI.header)}">
+    </div>
+
+    <div    *ngIf="aspect"
+            class="boxHV"
+            [ngStyle]="{'left.px': 0,
+                    'background-image': backFoto.name,
+                    'bottom.px': 0,
+                    'height.px': (sizeI.hoogte - sizeI.header + dVH.shift),
+                    'width.px': sizeI.breedte}">
+    </div>
+
+    <!--__________________________________________________________________________-->
+    <div class="boxL">
+        <h1>FIETSTOCHT</h1>
+        <h2>Amsterdam - Greve in Chianti</h2>
+        <h2>mei 2018</h2>
+    </div>
+
+    <div class="boxR"
+         [style.top.px]="sizeI['boxT'] + 20"
+         [style.left.px]="sizeI['breedte'] / 2"
+         [style.height.px]="sizeI['hoogte'] - sizeI['boxT'] - 100"
+         [style.width.px]="sizeI['breedte'] / 2 - 100" >
+        <div [innerHTML]="datamd[4][0]['secure']"></div>
+    </div>
+</div>
