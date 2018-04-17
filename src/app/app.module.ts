@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { environment } from './../environments/environment';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { datamd } from './reducers/work.reducer';
@@ -29,7 +31,7 @@ import { FotosComponent } from './fotos/fotos.component';
         FormsModule,
         HttpClientModule,
         StoreModule.forRoot({datamd, sizeI, treemd, extraInfo}),
-        StoreDevtoolsModule.instrument({maxAge: 25})
+        !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : []
     ],
     providers: [],
     bootstrap: [AppComponent]

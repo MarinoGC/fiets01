@@ -10,16 +10,10 @@ export class ExtraService {
     private pause: number;
     private pauseMax =  25;   // stel hier de pause tijd in
 
-    private data;
-    private path: string;
-    private parentPath: string;
-    private n: number;
-    private m: number;
-    private s: string;
-
     private alfa: number;
     private beta: number;
     private gamma: number;
+    private deltaX: number;
     private pos = [];
 
     constructor() {
@@ -30,7 +24,8 @@ export class ExtraService {
         this.alfa = (sizeI.breedte - margeLeft - margeRight) / item.width;
         this.beta = (sizeI.footer - sizeI.boxT - (2 * margeVert)) / item.height;
         this.gamma = Math.min(this.alfa, this.beta);
-        this.pos['upperX'] = Math.round(margeLeft);
+        this.deltaX = ((sizeI.breedte + margeLeft - margeRight - (this.gamma * item.width)) / 2.0);
+        this.pos['upperX'] = Math.round(margeLeft + this.deltaX);
         this.pos['upperY'] = Math.round((sizeI.footer + sizeI.boxT - (this.gamma * item.height)) / 2.0);
         this.pos['width'] = Math.round(this.gamma * item.width);
         this.pos['height'] = Math.round(this.gamma * item.height);
@@ -75,6 +70,7 @@ export class ExtraService {
     }
 
 
+/*
     filterTree1(treemd, trail, column) {
         this.data = treemd;
 
@@ -117,5 +113,6 @@ export class ExtraService {
         }
         return this.data;
     }
+*/
 
 }

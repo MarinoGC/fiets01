@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     private timerMenu;
     private subMenu: Subscription;
 
-    private urlTree = './inventarisatie/DataInfoShort.md';
+    private urlTree = './inventarisatie/weergave/WEERGAVE.md';
     private urlDoc = './inventarisatie/docSort.md';
 
     public extraInfo;
@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
 
     private fotoNummer = 0;
     private fotoNummerOld = 0;
-    private loc = './inventarisatie/weergave/';
     private pos: any;
     private item: any;
 
@@ -63,9 +62,6 @@ export class AppComponent implements OnInit {
     public helpShow = false;
     public helpHtml;
 
-    public teller = 1000;
-    private tellerSub = 0;
-
     public readyData = false;
 
     public show = false;
@@ -78,6 +74,7 @@ export class AppComponent implements OnInit {
     private werkS: any[];
     public werkPlus: any[];
     private n: number;
+    private l: number;
 
     constructor(private store: Store<any>,
                 private http: HttpClient,
@@ -104,7 +101,6 @@ export class AppComponent implements OnInit {
     onNavigate(value) {
 //        console.log(`${value.name} | ${sub}`);
         this.show = false;
-        this.tellerSub = 100;
         this.helpShow = false;
 
         this.dataSel = value.data['vis'];
@@ -126,8 +122,8 @@ export class AppComponent implements OnInit {
             this.sizeI['hoogte'] = this.hoogte;
 
             if (this.fotoNummer >= 0) {
-                this.item = this.treemd.contents[this.loc][this.fotoNummer + 1];
-                this.pos = this.extraService.pictureSize(this.sizeI, this.item, 100, 50, 25);
+                this.item = this.treemd[this.fotoNummer];
+                this.pos = this.extraService.pictureSize(this.sizeI, this.item, 20, 120, 25);
                 this.sizeI['upperX'] = this.pos['upperX'];
                 this.sizeI['upperY'] = this.pos['upperY'];
                 this.sizeI['fotoWidth'] = this.pos['width'];
@@ -157,21 +153,17 @@ export class AppComponent implements OnInit {
 //_____________________________________________________________________
     tickerFunc() {
         //______________________geregeld kijken of de dimensies nog kloppen
-        this.teller++;
-        if (this.teller > 10) {
-            this.teller = 0;
-            this.sizeGeg();
-        }
+        this.sizeGeg();
     }
 //_____________________________________________________________________
     onGroot(nr) {            // melding van FOTOS
         this.fotoNummer = nr;
-        console.log(`melding: ${nr}`);
+//        console.log(`melding: ${nr}`);
     }
 
 //_____________________________________________________________________
     ngOnInit() {
-        this.timerMenu = TimerObservable.create(100,50);       //hier wordt de tijd tik tijd ingesteld
+        this.timerMenu = TimerObservable.create(100,15);       //hier wordt de tijd tik tijd ingesteld
         this.subMenu = this.timerMenu.subscribe(t => this.tickerFunc());
 
         this.items = NavItems;
@@ -213,12 +205,7 @@ export class AppComponent implements OnInit {
             .subscribe(data => {
                 this.treemd = data;
                 console.log('____________________tree__________________________');
-                console.log(data);
-
-                this.treemd['trail'] = [this.loc, '', '', ''];
-                this.store.dispatch({type: TREE_ALL, payload: this.treemd});
-
-                this.treemd  = this.extraService.filterTree1(this.treemd, this.treemd['trail'], 0);
+                console.log(this.treemd);
                 this.store.dispatch({type: TREE_ALL, payload: this.treemd});
             })
     }

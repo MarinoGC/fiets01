@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output, HostListener } from '@angular/core';
+import { KEY_CODE } from '../models/nav.model';
 
 @Component({
     selector: 'app-fotos',
@@ -7,13 +8,14 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 })
 export class FotosComponent implements OnInit {
 
+    SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+
     @Input() sizeI;
     @Input() treemd;
     @Output() onGroot = new EventEmitter<any>();
 
-    public items: any[];
-
     private loc = './inventarisatie/weergave/';
+
     public n = 0;
     public nF = 0;
     public l: number;
@@ -24,13 +26,13 @@ export class FotosComponent implements OnInit {
     constructor() {
     }
 
+//________________________________________________________
     prev() {
         this.nF--;
         if (this.nF < 0) {
             this.nF = 0;
         }
-//        console.log(`down: ${this.nF} | ${this.l}`);
-        this.keuze(this.items[this.nF]);
+        this.keuze(this.treemd[this.nF]);
     }
 
     next() {
@@ -38,10 +40,44 @@ export class FotosComponent implements OnInit {
         if (this.nF > this.lF) {
             this.nF = this.lF;
         }
-//        console.log(`up: ${this.nF} | ${this.lF}`);
-        this.keuze(this.items[this.nF]);
+        this.keuze(this.treemd[this.nF]);
     }
 
+//___________________________________________________swipe for iPhone / iPad_____________
+    swipe(action = this.SWIPE_ACTION.RIGHT) {
+        if (action === this.SWIPE_ACTION.RIGHT) {
+            this.nF--;
+            if (this.nF < 0) {
+                this.nF = 0;
+            }
+            this.keuze(this.treemd[this.nF]);
+        }
+        if (action === this.SWIPE_ACTION.LEFT) {
+            this.nF++;
+            if (this.nF > this.lF) {
+                this.nF = this.lF;
+            }
+            this.keuze(this.treemd[this.nF]);
+        }
+    }
+//____________________________voor left/right/up/down toetsen__________________
+    @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+//        console.log(event);
+        if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
+            this.next();
+        }
+        if (event.keyCode === KEY_CODE.LEFT_ARROW) {
+            this.prev();
+        }
+        if (event.keyCode === KEY_CODE.UP_ARROW) {
+            this.keuze(this.treemd[this.nF]);
+        }
+        if (event.keyCode === KEY_CODE.DOWN_ARROW) {
+            this.showGroot = false;
+        }
+    }
+//________________________________________________________
     keuze(item) {
         this.groot = this.loc + item.name;
         this.nF = item.nr;
@@ -55,13 +91,7 @@ export class FotosComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.items = [];
-        this.l = this.treemd.contents[this.loc].length - 1;
-        for (this.n = 1; this.n <= this.l; this.n++) {
-            this.items.push(this.treemd.contents[this.loc][this.n]);
-        }
-        this.lF = this.l - 1;
-        console.log(this.items);
+        this.lF = this.treemd.length -1;
     }
 
 }
