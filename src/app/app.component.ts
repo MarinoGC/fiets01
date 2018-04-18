@@ -36,8 +36,10 @@ export class AppComponent implements OnInit {
     private urlDoc = './inventarisatie/docSort.md';
 
     public extraInfo;
-    public datamd;
     public treemd;
+    public datamd;
+    private data;
+    private data1;
     public sizeI;
 
     private fotoNummer = 0;
@@ -203,10 +205,16 @@ export class AppComponent implements OnInit {
 //___________de gegevens inlezen over de picture files_____________________________________
         this.http.get(this.urlTree)
             .subscribe(data => {
-                this.treemd = data;
+                this.data = data;
+                this.data1 = [];
+                this.l = this.data.length - 1;
+                for(this.n=0; this.n<this.l; this.n++) {
+                    this.data1.push(this.data[this.n + 1]);
+                    this.data1[this.n].nr = this.n;
+                }
                 console.log('____________________tree__________________________');
-                console.log(this.treemd);
-                this.store.dispatch({type: TREE_ALL, payload: this.treemd});
+                console.log(this.data1);
+                this.store.dispatch({type: TREE_ALL, payload: this.data1});
             })
     }
 }
