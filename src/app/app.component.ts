@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
     public items: ItemType[];
     public helpShow = false;
     public helpHtml;
+    public footerHtml;
 
     public readyData = false;
 
@@ -201,11 +202,13 @@ export class AppComponent implements OnInit {
                 console.log('==> datamd');
                 console.log(this.datamd);
                 this.readyData = true;
+
+                this.footerHtml = this.datamd[3][15].secure;
             });
 //___________de gegevens inlezen over de picture files_____________________________________
         this.http.get(this.urlTree)
             .subscribe(data => {
-                this.data = data;
+                this.data = data;           // het upToDate veld verwijderen
                 this.data1 = [];
                 this.l = this.data.length - 1;
                 for(this.n=0; this.n<this.l; this.n++) {

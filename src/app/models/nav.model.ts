@@ -11,7 +11,7 @@ export const NavItems = [
         data: {
             help: false,
             page: 3,
-            info: 10,
+            info: 11,
             vis: [true, false, false, false]
         },
     },
@@ -21,7 +21,7 @@ export const NavItems = [
         data: {
             help: false,
             page: 3,
-            info: 11,
+            info: 12,
             vis: [false, true, false, false]
         },
     },
@@ -31,7 +31,7 @@ export const NavItems = [
         data: {
             help: true,
             page: 3,
-            info: 12,
+            info: 13,
             vis: [false, false, true, false]
         },
     },
@@ -39,9 +39,9 @@ export const NavItems = [
         name: 'FOTO`S',
         id: 2,
         data: {
-            help: false,
+            help: true,
             page: 3,
-            info: 13,
+            info: 14,
             vis: [false, false, false, true]
         },
     },
@@ -92,6 +92,16 @@ export const BackFoto = [
         name:   'url(./resources/plaster.jpg)',
         width: 1014,
         height: 768
+    },
+    {   id:     9,
+        name:   'url(./resources/achtergrond02.jpg)',
+        width: 1600,
+        height: 899
+    },
+    {   id:     10,
+        name:   'url(./resources/achtergrond03.jpg)',
+        width: 674,
+        height: 350
     },
 
 ];

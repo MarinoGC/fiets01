@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Input, Output, HostListener } from '@angular/core';
-import { KEY_CODE } from '../models/nav.model';
+import { KEY_CODE, BackFoto } from '../models/nav.model';
 
 @Component({
     selector: 'app-fotos',
@@ -22,6 +22,7 @@ export class FotosComponent implements OnInit {
     public lF: number;
     public groot = '';
     public showGroot = false;
+    public backFoto: any;
 
     constructor() {
     }
@@ -92,6 +93,7 @@ export class FotosComponent implements OnInit {
 
     ngOnInit() {
         this.lF = this.treemd.length -1;
+        this.backFoto = BackFoto[8];
     }
 
 }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import { BackFoto } from '../models/nav.model';
+//import { BackFoto } from '../models/nav.model';
 
 @Component({
     selector: 'app-verslag',
@@ -15,6 +15,7 @@ export class VerslagComponent implements OnInit {
     private n: number;
     private l: number;
     public select = 0;
+    public dataThere = false;
     public backFoto: any;
 
     constructor() { }
@@ -25,11 +26,12 @@ export class VerslagComponent implements OnInit {
 
     ngOnInit() {
         this.l = this.datamd[4].length - 1;
-        for (this.n = this.l; this.n > 0; this.n--) {
+        for (this.n = this.l; this.n >= 0; this.n--) {
             this.data.push(this.datamd[4][this.n]);
+            this.dataThere = true;
         }
         console.log(this.data);
-        this.backFoto = BackFoto[8];
+//        this.backFoto = BackFoto[10];
     }
 
     ngOnDestroy() {

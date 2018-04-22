@@ -1,3 +1,10 @@
+<div [ngStyle]="{
+        'top.px': sizeI.boxT,
+        'height.px': (sizeI.footer - sizeI.boxT),
+        'width.px': sizeI.breedte,
+        'background-image': backFoto.name
+}">
+
 <div class="palet">
     <div *ngFor="let item of treemd">
         <figure (click)="keuze(item)">

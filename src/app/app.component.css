@@ -2,6 +2,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow: hidden;
 }
 header {
   margin-left: 0px;
@@ -16,6 +17,7 @@ footer {
   background-color: rgba(57, 59, 68, 0.2);
   color: #808495;
   cursor: default;
+  font-size: 20px;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
   text-align: center;
   box-shadow: 0px -3px 4px #b0b0b0;

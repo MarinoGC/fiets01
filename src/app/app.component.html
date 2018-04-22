@@ -66,9 +66,10 @@
 </main>
 
 
-<footer #footerDet
-        [ngStyle]="{'height.px': correctieFooter}">
-    <a href="mailto:info@carasso.nl" target="_blank">email Marino Carasso</a>
+<footer *ngIf="readyData"
+        #footerDet
+        [ngStyle]="{'height.px': correctieFooter}"
+        [innerHtml]="footerHtml">
 </footer>
 <div #bottomDetT></div>
 
